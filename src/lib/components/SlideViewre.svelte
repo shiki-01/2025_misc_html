@@ -1,20 +1,54 @@
 <script lang="ts">
+	import { onDestroy, onMount } from 'svelte';
 	import Icon from '@iconify/svelte';
 	import { currentSlide } from '$lib';
-	const slides = [{ content: 'Slide 1' }, { content: 'Slide 2' }, { content: 'Slide 3' }];
+	import Slide01 from '$lib/slides/Slide01.svelte';
+	import Slide02 from '$lib/slides/Slide02.svelte';
 
+	const slides = [{ content: Slide01 }, { content: Slide02 }];
+
+	let socket: WebSocket;
 	let isHovered = $state(false);
+	let slideScale = $state(1);
 
-	$effect(() => {
-		if ($currentSlide >= slides.length) {
-			currentSlide.set(slides.length - 1);
-		} else if ($currentSlide < 0) {
-			currentSlide.set(0);
+	const changeScale = () => {
+		if (typeof window === 'undefined') return;
+		const slideAspectRatio = 1920 / 1080;
+		const windowAspectRatio = window.innerWidth / window.innerHeight;
+
+		if (windowAspectRatio > slideAspectRatio) {
+			slideScale = window.innerHeight / 1080;
+		} else {
+			slideScale = window.innerWidth / 1920;
+		}
+	};
+
+	onMount(() => {
+		socket = new WebSocket('ws://192.168.154.101:1999/party/2025-misc-html');
+
+		socket.onmessage = (event) => {
+			currentSlide.set(JSON.parse(event.data).slide);
+		};
+
+		if (typeof window !== 'undefined') {
+			window.addEventListener('resize', changeScale);
+			changeScale();
+		}
+	});
+
+	onDestroy(() => {
+		if (socket) {
+			socket.close();
+		}
+
+		if (typeof window !== 'undefined') {
+			window.removeEventListener('resize', changeScale);
 		}
 	});
 </script>
 
 {#each slides as slide, i}
+	{@const Slide = slide.content}
 	{#if i === $currentSlide}
 		<div
 			role="button"
@@ -24,7 +58,7 @@
 			onmouseover={() => (isHovered = true)}
 			onfocus={() => (isHovered = true)}
 			onblur={() => (isHovered = false)}
-			class="w:100% video bg:gray flex rel"
+			class="w:100% h:100% flex justify-content:center align-items:center overflow:hidden"
 		>
 			{#if isHovered}
 				<button
@@ -40,7 +74,12 @@
 					<Icon icon="iconamoon:screen-full-duotone" width="24" height="24" />
 				</button>
 			{/if}
-			{slide.content}
+			<div
+				class="w:1920px h:1080px video bg:gray flex rel obj:contain"
+				style="transform: scale({slideScale}); transform-origin: center;"
+			>
+				<Slide />
+			</div>
 		</div>
 	{/if}
 {/each}

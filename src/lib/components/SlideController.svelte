@@ -17,7 +17,7 @@
 	};
 
 	onMount(() => {
-		socket = new WebSocket('ws://localhost:1999/party/local-slide');
+		socket = new WebSocket('ws://localhost:1999/party/2025-misc-html');
 
 		socket.onmessage = (event) => {
 			currentSlide.set(JSON.parse(event.data).slide);
@@ -40,6 +40,7 @@
 	function changeSlide(direction: number) {
 		currentSlide.update((n) => Math.max(0, n + direction));
 		socket.send(JSON.stringify({ slide: $currentSlide }));
+		console.log('Slide changed to: ', $currentSlide);
 	}
 </script>
 
