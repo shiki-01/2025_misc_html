@@ -1,0 +1,4 @@
+{
+    "name": "local-slide",
+    "main": "src/server.ts"
+}
