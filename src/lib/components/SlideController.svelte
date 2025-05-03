@@ -40,7 +40,6 @@
 	function changeSlide(direction: number) {
 		currentSlide.update((n) => Math.max(0, n + direction));
 		socket.send(JSON.stringify({ slide: $currentSlide }));
-		console.log('Slide changed to: ', $currentSlide);
 	}
 </script>
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SlideViewre from '$lib/components/SlideViewre.svelte';
+    import SlideViewer from '$lib/components/SlideViewer.svelte';
 </script>
 
-<SlideViewre />
+<SlideViewer />

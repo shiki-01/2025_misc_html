@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { isLoggedIn } from '$lib';
-	import SlideViewre from '$lib/components/SlideViewre.svelte';
+	import SlideViewer from '$lib/components/SlideViewer.svelte';
 	import SlideController from '$lib/components/SlideController.svelte';
 
 	onMount(() => {
@@ -26,5 +26,5 @@
 		</div>
 		<SlideController />
 	</div>
-	<SlideViewre />
+	<SlideViewer />
 {/if}

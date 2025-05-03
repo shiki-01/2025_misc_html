@@ -24,7 +24,7 @@
 	};
 
 	onMount(() => {
-		socket = new WebSocket('ws://192.168.154.101:1999/party/2025-misc-html');
+		socket = new WebSocket(`ws://${import.meta.env.VITE_LOCAL_IP}:1999/party/2025-misc-html`);
 
 		socket.onmessage = (event) => {
 			currentSlide.set(JSON.parse(event.data).slide);
