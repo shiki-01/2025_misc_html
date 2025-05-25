@@ -28,6 +28,7 @@
 		"partykit": "^0.0.114",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
+		"sass-embedded": "^1.89.0",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"typescript": "^5.0.0",
@@ -38,6 +39,7 @@
 		"@fontsource-variable/noto-sans-jp": "^5.2.5",
 		"@iconify/svelte": "^5.0.0",
 		"@master/css": "^2.0.0-rc.68",
-		"@master/css.vite": "^2.0.0-rc.68"
+		"@master/css.vite": "^2.0.0-rc.68",
+		"gsap": "^3.13.0"
 	}
 }

@@ -4,8 +4,17 @@
 	import { currentSlide } from '$lib';
 	import Slide01 from '$lib/slides/Slide01.svelte';
 	import Slide02 from '$lib/slides/Slide02.svelte';
+	import Slide03 from '$lib/slides/Slide03.svelte';
+	import Slide04 from '$lib/slides/Slide04.svelte';
+	import Slide05 from '$lib/slides/Slide05.svelte';
 
-	const slides = [{ content: Slide01 }, { content: Slide02 }];
+	const slides = [
+		{ content: Slide01 },
+		{ content: Slide02 },
+		{ content: Slide03 },
+		{ content: Slide04 },
+		{ content: Slide05 },
+	];
 
 	let socket: WebSocket;
 	let isHovered = $state(false);
