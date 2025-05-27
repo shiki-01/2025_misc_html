@@ -7,6 +7,7 @@
 	import Slide03 from '$lib/slides/Slide03.svelte';
 	import Slide04 from '$lib/slides/Slide04.svelte';
 	import Slide05 from '$lib/slides/Slide05.svelte';
+	import Slide06 from '$lib/slides/Slide06.svelte';
 
 	const slides = [
 		{ content: Slide01 },
@@ -14,7 +15,10 @@
 		{ content: Slide03 },
 		{ content: Slide04 },
 		{ content: Slide05 },
+		{ content: Slide06 }
 	];
+
+	currentSlide.set({ n: 0, max: slides.length - 1 });
 
 	let socket: WebSocket;
 	let isHovered = $state(false);
@@ -58,7 +62,7 @@
 
 {#each slides as slide, i}
 	{@const Slide = slide.content}
-	{#if i === $currentSlide}
+	{#if i === $currentSlide.n}
 		<div
 			role="button"
 			tabindex="0"

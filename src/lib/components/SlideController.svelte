@@ -38,7 +38,10 @@
 	});
 
 	function changeSlide(direction: number) {
-		currentSlide.update((n) => Math.max(0, n + direction));
+		currentSlide.update((n) => {
+            const newN = Math.min(Math.max(0, n.n + direction), n.max);
+            return { ...n, n: newN };
+        });
 		socket.send(JSON.stringify({ slide: $currentSlide }));
 	}
 </script>
