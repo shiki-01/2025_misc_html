@@ -4,18 +4,32 @@
 	import { currentSlide } from '$lib';
 	import Slide01 from '$lib/slides/Slide01.svelte';
 	import Slide02 from '$lib/slides/Slide02.svelte';
+	import Slide021 from '$lib/slides/Slide021.svelte';
 	import Slide03 from '$lib/slides/Slide03.svelte';
 	import Slide04 from '$lib/slides/Slide04.svelte';
 	import Slide05 from '$lib/slides/Slide05.svelte';
 	import Slide06 from '$lib/slides/Slide06.svelte';
+	import Slide07 from '$lib/slides/Slide07.svelte';
+	import Slide08 from '$lib/slides/Slide08.svelte';
+	import Slide09 from '$lib/slides/Slide09.svelte';
+	import Slide10 from '$lib/slides/Slide10.svelte';
+	import Slide10_1 from '$lib/slides/Slide10_1.svelte';
+	import Slide11 from '$lib/slides/Slide11.svelte';
 
 	const slides = [
 		{ content: Slide01 },
 		{ content: Slide02 },
-		{ content: Slide03 },
 		{ content: Slide04 },
+		{ content: Slide021 },
+		{ content: Slide03 },
 		{ content: Slide05 },
-		{ content: Slide06 }
+		{ content: Slide06 },
+		{ content: Slide07 },
+		{ content: Slide08 },
+		{ content: Slide09 },
+		{ content: Slide10 },
+		{ content: Slide10_1 },
+		{ content: Slide11 },
 	];
 
 	currentSlide.set({ n: 0, max: slides.length - 1 });

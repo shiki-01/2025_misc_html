@@ -12,7 +12,7 @@
 		class="w:100% h:100% px:200px py:20px flex flex:row justify-content:center align-items:center"
 	>
 		<div
-			class="w:100% h:100% py:24px flex flex:column justify-content:space-between align-items:start"
+			class="w:100% h:100% py:24px flex flex:column gap:80px justify-content:center align-items:start"
 		>
 			<div>
 				<h1 class="text:45px font:bold">拡張機能ページを開く</h1>
@@ -73,26 +73,6 @@
 					>
 						Live Server ↗
 					</a>
-				</div>
-			</div>
-			<div>
-				<h1 class="text:45px font:bold">フォルダーを開く</h1>
-				<div class="w:100% pl:24px flex flex:row justify-content:start align-items:center gap:20px">
-					<div class="w:64px h:64px flex justify-content:center align-items:center">
-						<svg
-							width="64"
-							height="64"
-							viewBox="0 0 64 64"
-							fill="none"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M46.6666 0H22.6666L18.6666 4V16H6.66663L2.66663 20V60.1865L6.66663 64H38.8532L42.6666 60.1865V48H55.1998L58.6666 44.1865V12L46.6666 0ZM46.6666 5.65332L53.0133 12H46.6666V5.65332ZM38.6666 60H6.66663V20H18.6666V44.1865L22.6666 48H38.6666V60ZM54.6666 44H22.6666V4H42.6666V16H54.6666V44Z"
-								fill="#424242"
-							/>
-						</svg>
-					</div>
-					<p class="text:40px font:bold">のアイコンを押して「フォルダーを開く」を選択</p>
 				</div>
 			</div>
 		</div>
