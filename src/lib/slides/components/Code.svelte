@@ -3,10 +3,12 @@
 	import Icon from '@iconify/svelte';
 	import hljs from 'highlight.js';
 	import xml from 'highlight.js/lib/languages/xml';
+	import css from 'highlight.js/lib/languages/css';
 	import 'highlight.js/styles/atom-one-dark-reasonable.css';
 	import '@fontsource-variable/m-plus-1-code';
 
 	hljs.registerLanguage('html', xml);
+	hljs.registerLanguage('css', css);
 
 	let lines: string[] = $state([]);
 	let isCopied = $state(false);
@@ -87,23 +89,31 @@
 		>
 			<Icon icon={isCopied ? 'ix:checkbox-filled' : 'ix:clipboard-filled'} class="text:2em" />
 		</button>
-		<div class="code-block w:100% h:100% r:16px flex">
-			<ol
-				class="w:60px h:100% py:2em pt:calc(2em+60px) bg:#23272e fg:#888 flex flex:column justify-content:start"
-			>
-				{#each lines as _, i}
-					<li
-						class="number width:100% height:2em pr:0.6em font:tabular-nums text:1.5em text-align:right flex justify-content:flex-end align-items:center"
+		<div class="abs top:60px left:0 right:0 bottom:0 bg:#282c34 overflow-y:auto overflow-x:hidden">
+			<div class="flex min-h:100%">
+				<div class=" flex">
+					<div
+						class="sticky left:0 z:1 flex:none w:60px user-select:none bg:#23272e fg:#888"
 					>
-						{i + 1}
-					</li>
-				{/each}
-			</ol>
-			<pre class="w:100% h:100%"><code
-					bind:this={codeEl}
-					class="text:2em line-h:1.5em language-html">
-                {@render children?.()}
-            </code></pre>
+						<ol class="m:0 padding:2em|0 w:100%">
+							{#each lines as _, i}
+								<li
+									class="number width:100% height:2em pr:0.6em font:tabular-nums text:1.5em text-align:right flex justify-content:flex-end align-items:center"
+								>
+									{i + 1}
+								</li>
+							{/each}
+						</ol>
+					</div>
+					<div class="flex:1 min-w:0 overflow-x:auto overflow-y:hidden">
+						<pre class="m:0 p:0 w:100% min-w:max-content h:auto"><code
+								bind:this={codeEl}
+								class="overflow-y:hidden text:2em line-h:1.5em language-{lang}">
+                	{@render children?.()}
+            	</code></pre>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -113,26 +123,11 @@
 		font-family: 'M PLUS 1 Code', monospace;
 	}
 
-	pre,
-	code {
-		margin: 0;
-		padding: 0;
-	}
-
-	pre {
-		height: 100%;
-		width: 100%;
-		padding-top: 60px;
-		overflow: auto;
-	}
-
 	code {
 		font-family: 'M PLUS 1 Code', monospace;
 		display: block;
 		white-space: pre;
 		word-break: break-all;
-		width: 100%;
-		height: 100%;
 		margin: 0;
 		padding: 0;
 	}

@@ -15,6 +15,16 @@
 	import Slide10 from '$lib/slides/Slide10.svelte';
 	import Slide10_1 from '$lib/slides/Slide10_1.svelte';
 	import Slide11 from '$lib/slides/Slide11.svelte';
+	import Slide12 from '$lib/slides/Slide12.svelte';
+	import Slide13 from '$lib/slides/Slide13.svelte';
+	import Slide14 from '$lib/slides/Slide14.svelte';
+	import Slide16 from '$lib/slides/Slide16.svelte';
+	import Slide17 from '$lib/slides/Slide17.svelte';
+	import Slide18 from '$lib/slides/Slide18.svelte';
+	import Slide19 from '$lib/slides/Slide19.svelte';
+	import Slide20 from '$lib/slides/Slide20.svelte';
+	import Slide21 from '$lib/slides/Slide21.svelte';
+	import Slide22 from '$lib/slides/Slide22.svelte';
 
 	const slides = [
 		{ content: Slide01 },
@@ -24,12 +34,22 @@
 		{ content: Slide03 },
 		{ content: Slide05 },
 		{ content: Slide06 },
+		{ content: Slide20 },
 		{ content: Slide07 },
 		{ content: Slide08 },
 		{ content: Slide09 },
 		{ content: Slide10 },
 		{ content: Slide10_1 },
 		{ content: Slide11 },
+		{ content: Slide12 },
+		{ content: Slide13 },
+		{ content: Slide14 },
+		{ content: Slide16 },
+		{ content: Slide17 },
+		{ content: Slide18 },
+		{ content: Slide19 },
+		{ content: Slide21 },
+		{ content: Slide22 }
 	];
 
 	currentSlide.set({ n: 0, max: slides.length - 1 });
